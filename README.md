@@ -12,14 +12,14 @@
 
 为了解决这个问题，可以把 [vscode](https://github.com/cdr/code-server) 也安装到远程服务器，并提供可以访问该 [vscode](https://github.com/cdr/code-server) 的 web 服务接口，那么在任意设备均可以通过浏览器实现远程开发了。
 
-![](imgs/00.png)
-
 
 [code-server](https://github.com/cdr/code-server) 就是可以安装在远程服务器并提供 web 服务的 vscode。
 
 本仓库只是对 [code-server](https://github.com/cdr/code-server) 的 [Docker](https://hub.docker.com/r/linuxserver/code-server) 镜像的简单封装。
 
 > 参考文档《[为 iPad 部署基于 VS Code 的远程开发环境](https://sspai.com/post/60456)》
+
+![](imgs/00.png)
 
 
 ## 项目构建
@@ -34,9 +34,15 @@
 
 ## 远程访问
 
-用浏览器访问 http://${server-ip}:8443 即可。
+用浏览器访问 http://${server-ip}:8443 即可（访问的是容器内的内容）
 
 但直接用 iPad 的 Safari 浏览器访问 [code-server](https://github.com/cdr/code-server) 的体验还是比较糟糕，上面地址栏和下面外接键盘出现的菜单栏都非常不顺畅，因此最好使用 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 作为 ipad 的本地客户端去访问 [code-server](https://github.com/cdr/code-server)。
 
 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 是一款专门为 iPad 用来优化 [code-server](https://github.com/cdr/code-server) 连接的 iOS 原生应用： 启动 APP 后，在【Self Hosted Server】填写 [code-server](https://github.com/cdr/code-server) 的连接信息即可。
 
+
+
+## TODO
+
+容器内安装 zsh 和 git
+run.sh 挂载宿主机工作目录到容器
