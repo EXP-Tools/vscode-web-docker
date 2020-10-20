@@ -7,8 +7,8 @@
 
 AUTH_PASSWORD="123456"
 SUDO_PASSWORD="123456"
-UID=`id | awk -F '[(=]'  '{print $2}'`
-GID=`id | awk -F '[(=]'  '{print $4}'`
+UID=`id | awk -F '[(=]' '{print $2}'`
+GID=`id | awk -F '[(=]' '{print $4}'`
 
 set -- `getopt a:s:u:g: "$@"`
 while [ -n "$1" ]
