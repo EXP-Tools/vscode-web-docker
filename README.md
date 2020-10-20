@@ -29,7 +29,7 @@
 - 下载仓库： `git clone https://github.com/lyy289065406/vscode-web-docker`
 - 构建镜像并运行： `./run.sh -a auth_password -s sudo_password`
 
-> auth_password 是通过浏览器访问 vscode 的密码； sudo_password 是 sudo 提权时的密码。
+> auth_password 是通过浏览器访问 vscode 的密码； sudo_password 是在 vscode 的 terminal 中使用 sudo 提权时的密码。
 
 
 ## 远程访问
