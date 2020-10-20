@@ -1,0 +1,35 @@
+# How to use :
+# auth_password=123456 sudo_password=123456 docker-compose up -d
+# docker-compose down
+# --------------------------------------------------------------------------------
+
+version: '2'
+services:
+  code-server:
+    image: linuxserver/code-server
+    container_name: docker_vscode_web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Aisa/Shanghai
+      - PASSWORD=${auth_password}
+      - SUDO_PASSWORD=${sudo_password}
+    volumes:
+      - ./config:/config
+    ports:
+      - 8443:8443
+    networks: 
+      vpn:
+        ipv4_address: 172.168.26.2
+    restart: unless-stopped
+
+
+networks:
+  vpn:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet:  172.168.26.0/24
+          gateway: 172.168.26.1
+    
