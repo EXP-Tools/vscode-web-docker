@@ -6,8 +6,10 @@
 version: '2'
 services:
   code-server:
-    image: linuxserver/code-server
     container_name: docker_vscode_web
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
     environment:
       - PUID=${uid}
       - PGID=${gid}
