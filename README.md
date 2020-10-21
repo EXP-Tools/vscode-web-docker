@@ -40,8 +40,3 @@
 
 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 是一款专门为 iPad 用来优化 [code-server](https://github.com/cdr/code-server) 连接的 iOS 原生应用： 启动 APP 后，在【Self Hosted Server】填写 [code-server](https://github.com/cdr/code-server) 的连接信息即可。
 
-
-
-## TODO
-
-run.sh 挂载宿主机工作目录到容器
