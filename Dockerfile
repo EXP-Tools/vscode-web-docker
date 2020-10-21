@@ -11,8 +11,9 @@ RUN apt-get clean && \
     apt-get install -y zsh git-core && \
     rm -rf /var/lib/apt/lists/*
 
+ADD ./config/.zshrc /root/.zshrc
 RUN mkdir -p /home/abc/ && \
-    git clone https://github.com/robbyrussell/oh-my-zsh.git /home/abc/.oh-my-zsh && \
+    git clone https://github.com/robbyrussell/oh-my-zsh.git /opt/.oh-my-zsh && \
     chsh -s /bin/zsh
 
 RUN echo "abc ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abc
