@@ -16,5 +16,7 @@ RUN git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh && \
     chsh -s /bin/zsh
 
 
+RUN echo "abc ALL=(ALL) NOPASSED: ALL" > /etc/sudoers.d/abc
+
 EXPOSE 8443
 WORKDIR /config/
