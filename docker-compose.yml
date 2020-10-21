@@ -17,8 +17,8 @@ services:
       - PASSWORD=${auth_password}
       - SUDO_PASSWORD=${sudo_password}
     volumes:
-      - ./config:/config
-      - ./workspace:/workspace
+      - ./vscode/config/:/config/
+      - ./vscode/workspace/:/workspace/
     ports:
       - 8443:8443
     networks: 
