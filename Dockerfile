@@ -13,7 +13,6 @@ RUN apt-get clean && \
 
 RUN mkdir -p /home/abc/ && \
     git clone https://github.com/robbyrussell/oh-my-zsh.git /home/abc/.oh-my-zsh && \
-    cp /home/abc/.oh-my-zsh/templates/zshrc.zsh-template /home/abc/.zshrc && \
     chsh -s /bin/zsh
 
 RUN echo "abc ALL=(ALL) NOPASSED: ALL" > /etc/sudoers.d/abc
