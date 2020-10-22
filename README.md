@@ -37,7 +37,7 @@ vscode-web-docker
     │       ├── code-server
     │       │   └── config.yaml ......... vscode 页面登录密码的存储文件
     │       └── User
-    │           └── settings.json ....... vscode 终端 shell 类型的配置文件
+    │           └── settings.json ....... vscode 用户配置文件
     ├── Dockerfile ...................... docker 构建配置
     └── workspace ....................... 挂载到容器的工作目录，可自由添加项目进去
 ```
@@ -48,9 +48,9 @@ vscode-web-docker
 - 宿主机安装 docker、docker-compose
 - 宿主机安全组/防火墙（iptables/firewall）放行 8443 端口的入口流量
 - 下载仓库： `git clone https://github.com/lyy289065406/vscode-web-docker`
-- 构建镜像并运行： `./run.sh -p basicauth_password`
+- 构建镜像并运行： `./run.sh -p "basicauth_password" -w "/path/to/mnt/workspace"`
 
-> basicauth_password 是通过浏览器访问 vscode 的密码
+> `-p` 指定通过浏览器访问 vscode 的 BasicAuth 密码； `-w` 指定挂载到容器的工作目录，该目录下的项目可直接被 vscode 访问（默认路径为 [`./vscode/workspace/`](vscode/workspace/)）
 
 
 ## 远程访问
@@ -60,3 +60,21 @@ vscode-web-docker
 但直接用 iPad 的 Safari 浏览器访问 [code-server](https://github.com/cdr/code-server) 的体验还是比较糟糕，上面地址栏和下面外接键盘出现的菜单栏都非常不顺畅，因此最好使用 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 作为 ipad 的本地客户端去访问 [code-server](https://github.com/cdr/code-server)。
 
 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 是一款专门为 iPad 用来优化 [code-server](https://github.com/cdr/code-server) 连接的 iOS 原生应用： 启动 APP 后，在【Self Hosted Server】填写 [code-server](https://github.com/cdr/code-server) 的连接信息即可。
+
+
+## FAQ
+
+### Q1. 在 terminal 无法复制黏贴
+
+web 版编辑器的快捷键没变，但是终端快捷键改了：
+
+- 复制： `ctrl + c`
+- 粘贴： `shift + insert`
+
+### Q2. 无法安装 Remote - SSH 插件做远程开发
+
+web 版确实不支持这个插件。
+
+但是 vscode-web 已经在你的远程代码服务器了，还要远程去哪里。。。
+
+只需要把远程服务器的代码目录挂载到 vscode-web 的 workspace ，vscode-web 就像访问本地代码一样。

@@ -1,18 +1,17 @@
 #!/bin/bash
 # 运行 vscode-web 服务
 #------------------------------------------------
-# 简单命令执行示例：
-# ./run.sh -p 123456
-# 完整命令执行示例：
-# ./run.sh -p 123456 -s 123456 -u 1000 -g 1000
+# 命令执行示例：
+# ./run.sh -p "123456" -w "/path/to/mnt/workspace"
 #------------------------------------------------
 
 AUTH_PASSWORD="123456"
 SUDO_PASSWORD="123456"
 UID=`id | awk -F '[(=]' '{print $2}'`
 GID=`id | awk -F '[(=]' '{print $4}'`
+WORK_PATH="./vscode/workspace/"
 
-set -- `getopt p:s:u:g: "$@"`
+set -- `getopt p:s:u:g:w: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
@@ -24,11 +23,13 @@ do
         shift ;;
     -g) GID="$2"
         shift ;;
+    -w) WORK_PATH="$2"
+        shift ;;
   esac
   shift
 done
 
-auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${UID} gid=${GID} docker-compose up -d
+auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${UID} gid=${GID} workpath=${WORK_PATH} docker-compose up -d
 
 # 等容器运行
 sleep 5

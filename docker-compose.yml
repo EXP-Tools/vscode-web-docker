@@ -1,5 +1,5 @@
 # How to use :
-# auth_password=123456 sudo_password=123456 uid=1000 gid=1000 docker-compose up -d
+# auth_password=123456 sudo_password=123456 uid=1000 gid=1000 workpath="./vscode/workspace/" docker-compose up -d
 # docker-compose down
 # --------------------------------------------------------------------------------
 
@@ -18,7 +18,7 @@ services:
       - SUDO_PASSWORD=${sudo_password}
     volumes:
       - ./vscode/config/:/config/
-      - ./vscode/workspace/:/workspace/
+      - ${workpath}:/workspace/
     ports:
       - 8443:8443
     networks: 
