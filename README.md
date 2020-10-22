@@ -25,20 +25,20 @@
 
 ```
 vscode-web-docker
-├── README.md
-├── imgs
-├── docker-compose.yml
-├── run.sh
-├── stop.sh
+├── README.md ........................... 此项目的说明文档
+├── imgs ................................ 辅助说明的图片目录
+├── docker-compose.yml .................. docker 构建配置
+├── run.sh .............................. 构建与运行脚本
+├── stop.sh ............................. 停止脚本
 └── vscode
-    ├── config
+    ├── config .......................... 挂载到容器，vscode 的用户配置目录
     │   └── .config
     │       ├── code-server
-    │       │   └── config.yaml
+    │       │   └── config.yaml ......... vscode 页面登录密码的存储文件
     │       └── User
-    │           └── settings.json
-    ├── Dockerfile
-    └── workspace
+    │           └── settings.json ....... vscode 终端 shell 类型的配置文件
+    ├── Dockerfile ...................... docker 构建配置
+    └── workspace ....................... 挂载到容器的工作目录，可自由添加项目进去
 ```
 
 
