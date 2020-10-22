@@ -27,3 +27,15 @@ do
 done
 
 auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${UID} gid=${GID} docker-compose up -d
+
+
+# DOCKER_ID=`docker ps -aq --filter name=docker_vscode_web`
+# if [ ! -z "${DOCKER_ID}" ]; then
+#     docker exec -u root ${DOCKER_ID} /bin/bash -c "sed -d /^abc/d /etc/apt/sources.list"
+# fi
+
+# RUN rm -f /etc/sudoers
+# ADD ./config/sudoers /etc/sudoers
+# RUN echo "abc	ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abc && \
+#     chmod 440 /etc/sudoers.d/abc && \
+#     chmod 440 /etc/sudoers
