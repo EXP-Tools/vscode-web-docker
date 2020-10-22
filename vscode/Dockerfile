@@ -16,12 +16,8 @@ RUN mkdir -p /home/abc/ && \
     git clone https://github.com/robbyrussell/oh-my-zsh.git /opt/.oh-my-zsh && \
     chsh -s /bin/zsh
 
-RUN chmod a+w /etc/sudoers && \
-    sed -e '/^abc/d' /etc/sudoers > /etc/sudoers && \
-    chmod a-w /etc/sudoers && \
-    echo "abc	ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abc && \
-    chmod 440 /etc/sudoers.d/abc && \
-    
+RUN echo "abc	ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abc && \
+    chmod 440 /etc/sudoers.d/abc
 
 EXPOSE 8443
 WORKDIR /config/
