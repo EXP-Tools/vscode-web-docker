@@ -30,6 +30,8 @@ done
 
 auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${UID} gid=${GID} docker-compose up -d
 
+# 等容器运行
+sleep 5
 
 # 初始镜像在启动后默认会在 /etc/sudoers 追加一行 abc 账号的 sudo 配置（需要 sudo 密码）
 # 导致 /etc/sudoers.d/abc 的配置不生效（不需要 sudo 密码）
