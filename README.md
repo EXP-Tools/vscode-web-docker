@@ -32,6 +32,7 @@ vscode-web-docker
 ├── stop.sh ............................. 停止脚本
 └── vscode
     ├── config .......................... 挂载到容器，vscode 的用户配置目录
+    │   ├── .zshrc ...................... zsh 的配置文件
     │   └── .config
     │       ├── code-server
     │       │   └── config.yaml ......... vscode 页面登录密码的存储文件
