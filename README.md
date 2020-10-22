@@ -21,6 +21,26 @@
 
 ![](imgs/00.png)
 
+## 目录结构说明
+
+```
+vscode-web-docker
+├── README.md
+├── imgs
+├── docker-compose.yml
+├── run.sh
+├── stop.sh
+└── vscode
+    ├── config
+    │   └── .config
+    │       ├── code-server
+    │       │   └── config.yaml
+    │       └── User
+    │           └── settings.json
+    ├── Dockerfile
+    └── workspace
+```
+
 
 ## 项目构建
 
@@ -39,4 +59,3 @@
 但直接用 iPad 的 Safari 浏览器访问 [code-server](https://github.com/cdr/code-server) 的体验还是比较糟糕，上面地址栏和下面外接键盘出现的菜单栏都非常不顺畅，因此最好使用 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 作为 ipad 的本地客户端去访问 [code-server](https://github.com/cdr/code-server)。
 
 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 是一款专门为 iPad 用来优化 [code-server](https://github.com/cdr/code-server) 连接的 iOS 原生应用： 启动 APP 后，在【Self Hosted Server】填写 [code-server](https://github.com/cdr/code-server) 的连接信息即可。
-
