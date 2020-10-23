@@ -61,6 +61,8 @@ vscode-web-docker
 
 [VSApp](https://sspai.com/app/VSApp%20-%20code-server) 是一款专门为 iPad 用来优化 [code-server](https://github.com/cdr/code-server) 连接的 iOS 原生应用： 启动 APP 后，在【Self Hosted Server】填写 [code-server](https://github.com/cdr/code-server) 的连接信息即可。
 
+> VSApp 已更名为 Sevediter for code-server
+
 
 ## FAQ
 
@@ -78,3 +80,10 @@ web 版确实不支持这个插件。
 但是 vscode-web 已经在你的远程代码服务器了，还要远程去哪里。。。
 
 只需要把远程服务器的代码目录挂载到 vscode-web 的 workspace ，vscode-web 就像访问本地代码一样。
+
+
+### Q3. 为什么 iPad 无法渲染 vscode-web 内容
+
+iOS 系统版本过低导致，至少需要 iOS 13 版本，该版本之后对浏览器做了优化，可以渲染 PC 浏览器的内容。
+
+但是最好还是使用 VSApp 访问 vscode-web ，速度不是浏览器可以比拟的。
