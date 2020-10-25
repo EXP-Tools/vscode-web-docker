@@ -63,6 +63,9 @@ vscode-web-docker
 
 > VSApp 已更名为 Sevediter for code-server
 
+![](imgs/01.jpg)
+
+![](imgs/02.jpg)
 
 ## FAQ
 
