@@ -6,7 +6,7 @@
 
 ## 简介
 
-通常情况下的远程开发，是把代码放在远程服务器，然后在本地的 [vscode](https://code.visualstudio.com/) 通过 SSH 登录到该服务器进行开发。
+现在比较主流的远程开发方式，是把代码放在远程服务器，然后在本地的 [vscode](https://code.visualstudio.com/) 通过 SSH 登录到该服务器进行开发。
 
 但是对于无法安装 [vscode](https://code.visualstudio.com/) 的设备（如 iPad）则无法这样做。
 
