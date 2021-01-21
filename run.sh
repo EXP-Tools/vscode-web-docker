@@ -7,8 +7,8 @@
 
 AUTH_PASSWORD="123456"
 SUDO_PASSWORD="123456"
-UID=`id | awk -F '[(=]' '{print $2}'`
-GID=`id | awk -F '[(=]' '{print $4}'`
+U_ID=`id | awk -F '[(=]' '{print $2}'`
+G_ID=`id | awk -F '[(=]' '{print $4}'`
 WORK_PATH="./vscode/workspace/"
 
 set -- `getopt p:s:u:g:w: "$@"`
@@ -19,9 +19,9 @@ do
         shift ;;
     -s) SUDO_PASSWORD="$2"
         shift ;;
-    -u) UID="$2"
+    -u) U_ID="$2"
         shift ;;
-    -g) GID="$2"
+    -g) G_ID="$2"
         shift ;;
     -w) WORK_PATH="$2"
         shift ;;
@@ -29,7 +29,7 @@ do
   shift
 done
 
-auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${UID} gid=${GID} workpath=${WORK_PATH} docker-compose up -d
+auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} workpath=${WORK_PATH} docker-compose up -d
 
 # 等容器运行
 sleep 5
