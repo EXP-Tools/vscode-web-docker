@@ -6,10 +6,11 @@
 version: '2'
 services:
   code-server:
+    image: expm02/vscode-web-docker:latest
     container_name: docker_vscode_web
-    build: 
-      context: ./vscode
-      dockerfile: ./Dockerfile
+    # build: 
+    #   context: .
+    #   dockerfile: ./Dockerfile
     environment:
       - PUID=${uid}
       - PGID=${gid}
@@ -17,10 +18,10 @@ services:
       - PASSWORD=${auth_password}
       - SUDO_PASSWORD=${sudo_password}
     volumes:
-      - ./vscode/config/:/config/
+      - ./volumes/config/:/config/
       - ${workpath}:/workspace/
     ports:
-      - 8443:8443
+      - 8090:8443
     networks: 
       vpn:
         ipv4_address: 172.168.26.2
