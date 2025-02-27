@@ -16,6 +16,10 @@ if ($keepdb -eq "--keepdb") {
         docker stop $_.ToString().Split(" ")[-1]
     }
 } else {
+    $ENV:auth_password=0; `
+    $ENV:sudo_password=0; `
+    $ENV:uid=0; `
+    $ENV:gid=0; `
     docker-compose down
 
     Write-Host "Docker is stopped ."

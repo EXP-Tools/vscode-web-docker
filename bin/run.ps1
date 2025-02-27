@@ -6,25 +6,21 @@
 #------------------------------------------------
 # ./run.ps1
 #           [-p ${PASSWORD}]            # 认证密码
-#           [-w ${WORKSPACE}]           # 挂载的工作目录
 #------------------------------------------------
 
 param (
-    [string]$p = "123456",
-    [string]$w = "./volumes/workspace/"
+    [string]$p = "123456"
 )
 
 $AUTH_PASSWORD = $p
 $SUDO_PASSWORD = $p
 $U_ID = 1000
 $G_ID = 1000
-$WORK_PATH = $w
 
 $ENV:auth_password=${AUTH_PASSWORD}; `
 $ENV:sudo_password=${SUDO_PASSWORD}; `
 $ENV:uid=${U_ID}; `
 $ENV:gid=${G_ID}; `
-$ENV:workpath=${WORK_PATH}; `
 docker-compose up -d
 
 # 等容器运行

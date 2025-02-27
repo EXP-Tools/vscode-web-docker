@@ -1,3 +1,5 @@
+# 最新版 4.97.2 默认引入了 Copilot ，但是有个 BUG 无法打开工作区
+# https://github.com/coder/code-server/issues/7214
 FROM linuxserver/code-server:4.96.4
 
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list

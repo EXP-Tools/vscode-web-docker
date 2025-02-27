@@ -3,18 +3,16 @@
 # 运行 docker 服务
 #------------------------------------------------
 # 命令执行示例：
-# ./run.sh -p "123456" -w "/path/to/mnt/workspace"
+# ./run.sh -p "123456"
 #------------------------------------------------
 # sudo bin/run.sh
 #           [-p ${PASSWORD}]            # 认证密码
-#           [-w ${WORKSPACE}]           # 挂载的工作目录
 #------------------------------------------------
 
 AUTH_PASSWORD="123456"
 SUDO_PASSWORD="123456"
 U_ID=`id | awk -F '[(=]' '{print $2}'`
 G_ID=`id | awk -F '[(=]' '{print $4}'`
-WORK_PATH="./volumes/workspace/"
 
 set -- `getopt p:s:u:g:w: "$@"`
 while [ -n "$1" ]
@@ -28,13 +26,11 @@ do
         shift ;;
     -g) G_ID="$2"
         shift ;;
-    -w) WORK_PATH="$2"
-        shift ;;
   esac
   shift
 done
 
-auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} workpath=${WORK_PATH} docker-compose up -d
+auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} docker-compose up -d
 
 # 等容器运行
 sleep 5

@@ -6,11 +6,13 @@
 
 IMAGE_NAME=`echo ${PWD##*/}`
 
-echo "clean logs ..."
-rm -rf logs
+# echo "clean logs ..."
+# rm -rf logs
 
 echo "clean images ..."
 docker rmi -f $(docker images | grep "${IMAGE_NAME}" | awk '{print $3}')
 docker rmi -f $(docker images | grep "none" | awk '{print $3}')
+docker images --filter "dangling=true" -q | xargs docker rmi -f
+
 
 echo "finish ."

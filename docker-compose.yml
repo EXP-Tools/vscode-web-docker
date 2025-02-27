@@ -18,7 +18,7 @@ services:
       - SUDO_PASSWORD=${sudo_password}
     volumes:
       - ./volumes/config/:/config/
-      - ${workpath}:/workspace/
+      - ./volumes/workspace/:/workspace/
     ports:
       - 8090:8443
     networks: 
