@@ -14,14 +14,13 @@ param (
     [string]$p = "123456"
 )
 
-$AUTH_PASSWORD = $p
+$AUTH_PASSWORD = $a
 $SUDO_PASSWORD = $p
 $U_ID = 1000
 $G_ID = 1000
 
 
-# 镜像有 BUG， auth_password 与 sudo_password 被混用了，直接使用同一个
-$ENV:auth_password=${SUDO_PASSWORD}; `
+$ENV:auth_password=${AUTH_PASSWORD}; `
 $ENV:sudo_password=${SUDO_PASSWORD}; `
 $ENV:uid=${U_ID}; `
 $ENV:gid=${G_ID}; `

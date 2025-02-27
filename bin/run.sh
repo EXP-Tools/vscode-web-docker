@@ -15,13 +15,13 @@ SUDO_PASSWORD="123456"
 U_ID=`id | awk -F '[(=]' '{print $2}'`
 G_ID=`id | awk -F '[(=]' '{print $4}'`
 
-set -- `getopt p:s:u:g: "$@"`
+set -- `getopt a:p:u:g: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
-    -p) AUTH_PASSWORD="$2"
+    -a) AUTH_PASSWORD="$2"
         shift ;;
-    -s) SUDO_PASSWORD="$2"
+    -p) SUDO_PASSWORD="$2"
         shift ;;
     -u) U_ID="$2"
         shift ;;
@@ -31,8 +31,7 @@ do
   shift
 done
 
-# 镜像有 BUG， auth_password 与 sudo_password 被混用了，直接使用同一个
-auth_password=${SUDO_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} docker-compose up -d
+auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} docker-compose up -d
 
 # 等容器运行
 sleep 5
