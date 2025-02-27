@@ -2,7 +2,7 @@
 # 运行 docker 服务
 #------------------------------------------------
 # 命令执行示例：
-# ./run.ps1 -p "123456" -w "/path/to/mnt/workspace"
+# ./run.ps1 -p "123456"
 #------------------------------------------------
 # ./run.ps1
 #           [-a ${AUTH_PASSWORD}]            # 前端认证密码
@@ -19,7 +19,9 @@ $SUDO_PASSWORD = $p
 $U_ID = 1000
 $G_ID = 1000
 
-$ENV:auth_password=${AUTH_PASSWORD}; `
+
+# 镜像有 BUG， auth_password 与 sudo_password 被混用了，直接使用同一个
+$ENV:auth_password=${SUDO_PASSWORD}; `
 $ENV:sudo_password=${SUDO_PASSWORD}; `
 $ENV:uid=${U_ID}; `
 $ENV:gid=${G_ID}; `

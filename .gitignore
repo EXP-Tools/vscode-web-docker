@@ -1,2 +1,1 @@
-volumes/config/*
-volumes/workspace/*
+volumes/vscode-server/*

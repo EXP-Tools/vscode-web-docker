@@ -31,7 +31,8 @@ do
   shift
 done
 
-auth_password=${AUTH_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} docker-compose up -d
+# 镜像有 BUG， auth_password 与 sudo_password 被混用了，直接使用同一个
+auth_password=${SUDO_PASSWORD} sudo_password=${SUDO_PASSWORD} uid=${U_ID} gid=${G_ID} docker-compose up -d
 
 # 等容器运行
 sleep 5
