@@ -1,4 +1,4 @@
-FROM linuxserver/code-server:4.97.2
+FROM linuxserver/code-server:4.96.4
 
 RUN sed -i s@/archive.ubuntu.com/@/mirrors.aliyun.com/@g /etc/apt/sources.list
 RUN apt-get clean && \
