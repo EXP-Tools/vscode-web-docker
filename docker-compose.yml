@@ -19,10 +19,9 @@ services:
       - SUDO_PASSWORD=${sudo_password}
       # - SUDO_PASSWORD_HASH= #optional
       # - PROXY_DOMAIN=code-server.my.domain #optional
-      - DEFAULT_WORKSPACE=/workspace #optional
+      - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
-      - ./volumes/config/:/config/
-      - ./volumes/workspace/:/workspace/
+      - ./volumes/vscode-server/:/config/
     ports:
       - 8090:8443
     networks: 

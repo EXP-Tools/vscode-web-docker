@@ -10,10 +10,10 @@ RUN apt-get clean && \
 
 RUN mkdir -p /home/abc/
 # RUN git clone https://github.com/robbyrussell/oh-my-zsh.git /opt/.oh-my-zsh
-ADD ./volumes/ohmyzsh-20250226  /opt/.oh-my-zsh
+ADD ./volumes/ohmyzsh/20250226  /opt/.oh-my-zsh
 RUN chsh -s /bin/zsh
-ADD ./volumes/config/.zshrc /root/.zshrc
-ADD ./volumes/config/.zshrc /home/abc/.zshrc
+ADD ./volumes/ohmyzsh/config/.zshrc /root/.zshrc
+ADD ./volumes/ohmyzsh/config/.zshrc /home/abc/.zshrc
 
 RUN echo "abc	ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abc && \
     chmod 440 /etc/sudoers.d/abc
