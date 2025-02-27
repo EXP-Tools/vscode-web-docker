@@ -1,5 +1,5 @@
 # How to use :
-# auth_password=123456 sudo_password=123456 uid=1000 gid=1000 workpath="./vscode/workspace/" docker-compose up -d
+# auth_password=123456 sudo_password=123456 uid=1000 gid=1000 docker-compose up -d
 # docker-compose down
 # --------------------------------------------------------------------------------
 
@@ -13,9 +13,13 @@ services:
     environment:
       - PUID=${uid}
       - PGID=${gid}
-      - TZ=Aisa/Shanghai
+      - TZ=Asia/Shanghai
       - PASSWORD=${auth_password}
+      # - HASHED_PASSWORD= #optional
       - SUDO_PASSWORD=${sudo_password}
+      # - SUDO_PASSWORD_HASH= #optional
+      # - PROXY_DOMAIN=code-server.my.domain #optional
+      - DEFAULT_WORKSPACE=/workspace #optional
     volumes:
       - ./volumes/config/:/config/
       - ./volumes/workspace/:/workspace/

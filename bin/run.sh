@@ -6,7 +6,8 @@
 # ./run.sh -p "123456"
 #------------------------------------------------
 # sudo bin/run.sh
-#           [-p ${PASSWORD}]            # 认证密码
+#           [-a ${AUTH_PASSWORD}]            # 前端认证密码
+#           [-p ${SUDO_PASSWORD}]            # 后端提权密码
 #------------------------------------------------
 
 AUTH_PASSWORD="123456"
@@ -14,7 +15,7 @@ SUDO_PASSWORD="123456"
 U_ID=`id | awk -F '[(=]' '{print $2}'`
 G_ID=`id | awk -F '[(=]' '{print $4}'`
 
-set -- `getopt p:s:u:g:w: "$@"`
+set -- `getopt p:s:u:g: "$@"`
 while [ -n "$1" ]
 do
   case "$1" in
