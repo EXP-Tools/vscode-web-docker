@@ -13,10 +13,7 @@ RUN mkdir -p /home/abc/
 ADD ./volumes/ohmyzsh/20250226  /opt/.oh-my-zsh
 RUN chsh -s /bin/zsh
 ADD ./volumes/ohmyzsh/config/.zshrc /root/.zshrc
-ADD ./volumes/ohmyzsh/config/.zshrc /home/abc/.zshrc
 
-RUN echo "abc	ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/abc && \
-    chmod 440 /etc/sudoers.d/abc
-
+RUN echo "alias ll='ls -alF'" >> /root/.bashrc
 EXPOSE 8443
 WORKDIR /config/

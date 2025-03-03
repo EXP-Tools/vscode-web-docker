@@ -11,8 +11,8 @@ services:
     #   context: .
     #   dockerfile: ./Dockerfile
     environment:
-      - PUID=${uid}
-      - PGID=${gid}
+      - PUID=0
+      - PGID=0
       - TZ=Asia/Shanghai
       - PASSWORD=${auth_password}
       # - HASHED_PASSWORD= #optional
@@ -22,6 +22,7 @@ services:
       - DEFAULT_WORKSPACE=/config/workspace #optional
     volumes:
       - ./volumes/vscode-server/:/config/
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
     ports:
       - 8090:8443
     networks: 
